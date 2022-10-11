@@ -11,4 +11,5 @@ public class Data{
     // for(int i=0;i<name.length;i++){
     //     name[i]=personsfirstNames[i]+personsSecondNames[i];
     // }
+
 }
