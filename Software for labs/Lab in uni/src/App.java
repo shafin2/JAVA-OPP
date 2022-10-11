@@ -11,12 +11,6 @@ public class App {
     static private Department departments[]=new Department[10];
     static Scanner sc=new Scanner(System.in);
     public static void main(String[] args) throws Exception {
-        // System.out.println("Hello, World!");
-        // Lab l1=new Lab("hdc",new Employee("4", "hf", "hcf"));
-        // l1.toString();
-
-        // Department d1=new Department("hdc",new Employee("4", "hf", "hcf"));
-        // d1.showLabs();
         autoMakeSomeDepartment();
         char user_choice='y';
         while(user_choice=='y'){
@@ -47,8 +41,6 @@ public class App {
             user_choice = sc.next().charAt(0);
         }
         
-        
-
         
 
     }
@@ -88,7 +80,7 @@ public class App {
     public static void autoMakeSomeDepartment(){
         Random rn=new Random();
         for(int i=0;i<5;i++){
-            departments[i]=new Department(depName[i],new Employee(Integer.toString(rn.nextInt(1000,10000)), Names[rn.nextInt(0,9)],Attendent[rn.nextInt(0,2)]));
+            departments[i]=new Department(depName[i],new Employee(Integer.toString(rn.nextInt(1000,10000)), Names[rn.nextInt(0,9)],Attendent[rn.nextInt(0,3)]));
         }
     }
 
