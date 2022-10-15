@@ -14,6 +14,11 @@ public class Campus {
         this.director = director;
         autoMakeSomeDepartment();
     }
+    public Campus(Campus a){
+        // a=(Campus)a;
+        this.name=a.getName();
+        this.director=a.getDirector();
+    }
     public void campusMain(){
         char user_choice='y';
         while(user_choice=='y'){
@@ -110,7 +115,8 @@ public class Campus {
     // }
 
     // @Override
-    // protected Object clone() throws CloneNotSupportedException {
-    //     return super.clone();
-    // }
+    public Object clone(){
+        Object teamp=new Campus(this.name, this.director);
+        return teamp;
+    }
 }

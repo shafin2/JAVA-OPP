@@ -1,0 +1,1 @@
+c1.getName(), c1.getDirector()
