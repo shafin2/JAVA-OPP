@@ -1,1 +1,3 @@
-c1.getName(), c1.getDirector()
+tch(IOException e) {
+        //     e.printStackTrace();
+        //   }
