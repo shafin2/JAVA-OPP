@@ -31,7 +31,57 @@ public class Department {
             System.out.println("You are in "+this.name+" Department");
             System.out.println("Press 1 to create Lab,Press 2 to show Lab,Press 3 to update Lab, Press 4 to delete Lab or Press 5 to go inside Lab");
             int UserInput=sc.nextInt();
+            if(UserInput==1){
+                System.out.println("Press 1 to create Lab manually or press 2 to auto create Lab");
+                int create=sc.nextInt();
+                if(create==1){
+                    if(labs[labs.length-1]==null){
+                        makeLabs();
+                    }
+                    else{
+                        System.out.println("No more space to make Lab");
+                    }
+      
+                }
+                else if(create==2){
+                    System.out.println("Enter the number of Lab you want to auto create");
+                    int nmbrOfLab=sc.nextInt();
+                    autoMakeSomeLabs(nmbrOfLab);
+                }
+                else{
+                    System.out.println("Invalid Input");
+                }
+            }
+            else if(UserInput==2){
+                showLabs();
+            }
+            else if(UserInput==3){
+                updateLab();
+                updateFile();
+                System.out.println("Your Lab is updated");
+            }
+            else if(UserInput==4){
+                deleteLab();
+                updateFile();
+            }
+            else if(UserInput==5){
+                if(labs[0]!=null){
+                    int result=checkIfLabExist();
+                    if(result!=100){
+                        labs[result].labMain();;
+                     }
+                    else{
+                        System.out.println("No Lab with that name");
+                     }
+                }
+                else{
+                    System.out.println("There is no Lab Exist!");
+                }
+            }
             
+            else{
+                System.out.println("Invalid Input!");
+            }
             
             System.out.println("Do you want to continue in that department y/n ? ");
             user_choice = sc.next().charAt(0);
@@ -65,7 +115,7 @@ public class Department {
                 j++;
             }                
         }
-        System.out.println("Departments created");
+        System.out.println("Labs created");
         if(labs[labs.length-1]!=null){
             System.out.println("No more space to make Lab");
         }

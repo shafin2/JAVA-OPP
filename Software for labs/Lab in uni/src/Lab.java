@@ -18,9 +18,7 @@ public class Lab {
     public Lab(String labName, Employee labAttendant) {
         this.labName = labName;
         this.labAttendant = labAttendant;
-        autoMakeSomePc(4);
     }
-    
     public void labMain(){
         char user_choice='y';
         while(user_choice=='y'){
@@ -35,7 +33,7 @@ public class Lab {
                         makePCs();
                     }
                     else{
-                        System.out.println("No more space to make Lab");
+                        System.out.println("No more space to make PC");
                     }
       
                 }
@@ -54,7 +52,6 @@ public class Lab {
             else if(UserInput==3){
                 updatePc();
                 updateFile();
-                System.out.println("Your Lab is updated");
             }
             else if(UserInput==4){
                 deletePc();
@@ -102,7 +99,7 @@ public class Lab {
         Random rn=new Random();
         int j=0;
         for(int i=0;i<10;i++){
-            if(labs[i]==null && j<k){
+            if(computers[i]==null && j<k){
                 computers[i]=new PC(Integer.toString(rn.nextInt(1000,5000)),PCName[rn.nextInt(0,4)],Integer.toString(rn.nextInt(100000,23000000)),rn.nextInt(1000,24000),rn.nextInt(128,1024),rn.nextInt(0,2)==1?true:false);
                 j++;
             }
@@ -118,8 +115,8 @@ public class Lab {
     public void updatePc(){
         int result=checkIfPcExist();
         if(result!=100){
-            System.out.println("The Lab which you want to update is :");
-            System.out.println(labs[result].toString());
+            System.out.println("The PC which you want to update is :");
+            System.out.println(computers[result].toString());
             System.out.println("Now update....");
             System.out.print("Enter PC Name : ");
             String pcName=sc.next();
@@ -131,29 +128,29 @@ public class Lab {
             int RAMSizeMB=sc.nextInt();
             System.out.print("Enter hardDiskSizeGB : ");
             int hardDiskSizeGB=sc.nextInt();
-            System.out.print("If there is gpu press 1 : ");                int GPU=sc.nextInt();
-            computers[i].getAssetID(assetID);
-            computers[i].getItemName(pcName);
-            computers[i].getCPUSerialNo(CPUSerialNo);
-            computers[i].getRAMSizeMB(RAMSizeMB);
-            computers[i].getHardDiskSizeGB(hardDiskSizeGB);
-            computers[i].getGPU(GPU==1?true:false);
+            System.out.print("If there is gpu press 1 : ");                
+            int GPU=sc.nextInt();
+            computers[result].setAssetID(assetID);
+            computers[result].setItemName(pcName);
+            computers[result].setCPUSerialNo(CPUSerialNo);
+            computers[result].setRAMSizeMB(RAMSizeMB);
+            computers[result].setHardDiskSizeGB(hardDiskSizeGB);
+            computers[result].setGPU(GPU==1?true:false);
             System.out.println("Your PC is updated");
         }
         else{
-           System.out.println("No Lab with that name");
+           System.out.println("No PC with that name");
         }
     }
     //to delete Lab 
-    public void deleteLab(){
-        int result=checkIfLabExist();
+    public void deletePc(){
+        int result=checkIfPcExist();
         if(result!=100){
             computers[result]=null;
-            System.out.println("Your PC
-             is delete");
+            System.out.println("Your PC is delete");
         }
         else{
-           System.out.println("No Lab with that name");
+           System.out.println("No PC with that name");
          }
     }
     //to save Labs data in file
@@ -198,14 +195,14 @@ public class Lab {
             while(str!=null){
                 try{
                     String[] PcData=str.split("\\s");
-                    computers[i]=new PC(PcData[0],PcData[1],PcData[2],PcData[3],PcData[4],PcData[5]);
+                    computers[i]=new PC(PcData[0],PcData[1],PcData[2],Integer.parseInt(PcData[3]),Integer.parseInt(PcData[3]),PcData[5]=="true"?true:false);
                 }
                 catch (Exception e) {
                     // TODO: handle exception
                     System.out.println("Data in file is not true");
                 }
                 str=br.readLine();
-                if(i<labs.length)
+                if(i<computers.length)
                     i++;
             }
             br.close();    
@@ -217,11 +214,11 @@ public class Lab {
     //check if PC exist
     public int checkIfPcExist(){
         int d=100;
-        System.out.print("Enter PC name : ");
+        System.out.print("Enter PC Asset Id : ");
         String PcName=sc.next();
         for(int i=0;i<computers.length;i++){
-            if(labs[i]!=null){
-                if(new String(PcName).equals(computers[i].getItemName()){
+            if(computers[i]!=null){
+                if(new String(PcName).equals(computers[i].getAssetID())){
                     d=i;
                 }
             }    
