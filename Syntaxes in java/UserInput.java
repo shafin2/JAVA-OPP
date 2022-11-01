@@ -2,6 +2,12 @@ import java.util.Scanner;
 
 public class UserInput{
     public static void main(String[] args) {
+        Inheritance i1=new Inheritance();
+        i1.rollNo=8;
+    
+
+
+
         System.out.println("--Calculator");
         Scanner sc = new Scanner(System.in);
         char user_choice='y';

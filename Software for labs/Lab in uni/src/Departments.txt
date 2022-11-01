@@ -5,5 +5,5 @@ Pharmacy 9787$Shafin$Supervisor
 CS 4284$Ali$Head
 SE 5838$Aneeq$Attendant
 QE ed$se$dd
-CS 6289$Aneeq$Supervisor
 SE 8496$Ahmad$Head
+CS 4396$Arham$Attendant

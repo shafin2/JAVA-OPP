@@ -18,6 +18,7 @@ public class Lab {
     public Lab(String labName, Employee labAttendant) {
         this.labName = labName;
         this.labAttendant = labAttendant;
+        populateArray();
     }
     public void labMain(){
         char user_choice='y';
