@@ -1,0 +1,6 @@
+C 1 Saleem 25000 0.06
+C 6 Haleem 2000 0.07
+H 9 Kaleem 45 25.5
+C 4 Rashid 26000 0.08
+H 65 Zaheer 35 45.0
+H 76 Hamza 39.5 65.0
